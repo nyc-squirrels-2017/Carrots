@@ -3,6 +3,6 @@ class User < ActiveRecord::Base
   has_many :rounds
   has_many :guesses, through: :rounds
 
-  validates :username, :email,  presence: true
+  validates :username, :email,  presence: true, uniqueness: :true
   validates :password, length: { minimum: 6 }
 end
