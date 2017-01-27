@@ -1,0 +1,10 @@
+<% if @errors %>
+<div>
+  <h3>Oops! Seems like you have some carrot sticks:</h3>
+  <ul>
+    <% @errors.each do |error| %>
+    <li> <%= error %> </li>
+    <% end %>
+  </ul>
+</div>
+<% end %>
