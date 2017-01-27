@@ -14,9 +14,12 @@
     <header role="banner">
       <img src="images/logo.png" width="50px" height="50px">
       <a class="title" href="/">Carrots</a>
-      <a href="#" class="signup button">Logout</a>
+      <% if login? %>
+      <a href="/sessions/logout" class="signup button">Logout</a>
+      <% else %>
       <a href="/sessions/login" class="signup button">Login</a>
       <a href="/users/signup" class="signup button">Sign up</a>
+      <% end %>
     </header>
 
     <%= yield %>
