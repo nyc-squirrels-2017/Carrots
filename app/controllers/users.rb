@@ -1,6 +1,6 @@
 
 get '/users/:id' do
-  binding.pry
+
    @user = User.find_by(id: params[:id])
 erb :users
 end

@@ -7,7 +7,8 @@ Guess.delete_all
 user1 = User.create!({
   :username => "admin",
   :email => "admin@gmail.com",
-  :password_digest => "$2a$10$LUOuwlIStjj9EI.jVr4w1uR2HTqtnmYvvVspDGnDj./MA7Zca7mC."
+  :password => "carrots"
+  # :password_digest => "$2a$10$LUOuwlIStjj9EI.jVr4w1uR2HTqtnmYvvVspDGnDj./MA7Zca7mC."
   })
 
 deck1 = Deck.create!({
