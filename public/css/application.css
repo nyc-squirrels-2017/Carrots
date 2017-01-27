@@ -162,6 +162,7 @@ input {
   padding: .25em;
   outline: none;
   border: 1px solid #828c91;
+  color: #000000;
 }
 
   input[type=submit] {
@@ -181,4 +182,12 @@ input {
 
 .errors {
   margin: 0;
+}
+
+.card {
+    border-radius: 25px;
+    background: #ffca6a;
+    padding: 20px;
+    width: 400px;
+    height: 250px;
 }
