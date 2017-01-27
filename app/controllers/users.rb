@@ -2,7 +2,8 @@ get '/users' do
   redirect '/'
 end
 
-get '/users/new' do
+# signup
+get '/users/signup' do
   erb :"users/new"
 end
 
