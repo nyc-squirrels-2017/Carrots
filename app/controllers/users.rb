@@ -19,7 +19,7 @@ post '/users' do
   if user.save
     session[:user_id]
     redirect '/users'
-  elses
+  else
     @errors = user.errors.full_messages
     erb :"users/new"
   end
