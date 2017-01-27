@@ -1,3 +1,10 @@
+
+get '/users/:id' do
+
+   @user = User.find_by(id: params[:id])
+erb :users
+end
+
 get '/users' do
   redirect '/'
 end
@@ -16,4 +23,5 @@ post '/users' do
     @errors = user.errors.full_messages
     erb :"users/new"
   end
+
 end
