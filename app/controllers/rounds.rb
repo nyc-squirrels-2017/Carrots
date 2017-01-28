@@ -3,5 +3,6 @@ get '/decks/:id/rounds' do
 end
 
 get '/decks/:id/rounds/:id' do
+
   redirect '/'
 end

@@ -5,11 +5,15 @@ get '/decks/:d_id/rounds/:round_num/cards' do
 end
 
 get '/decks/:d_id/rounds/:round_num/cards/:id' do
-  @round = current_user.rounds[-1]
-  @deck = @round.deck
-  @card = @deck.cards[session[:card] - 1]
-
-  erb :"/cards/show"
+    @round = current_user.rounds[-1]
+    @deck = @round.deck
+  if @deck.cards.size < session[:card]
+    session[:card] = nil
+    redirect "/"
+  else
+    @card = @deck.cards[session[:card] - 1]
+    erb :"/cards/show"
+  end
 end
 
 post '/decks/:d_id/rounds/:round_num/cards' do
@@ -18,18 +22,17 @@ post '/decks/:d_id/rounds/:round_num/cards' do
     @card = Card.find_by_id(params[:guess][:card_id])
 
     response = @card.answer == params[:guess][:response]
-    #
-    # @round.guesses.create(
-    #   response: response,
-    #   card_id: @card.id
-    # )
+    
+    @round.guesses.create(
+      response: response,
+      card_id: @card.id
+    )
 
-    # if response == true
-    #  @message == correct!
-    # render the cards/show page with the message
-    # else
-    #  @message == incorrect!
-    # render the cards/show page with the message
-    # end
-
+    if response
+      @message = "You are Carrot! We are rooting for you!"
+    else
+      @message = "You're wrong but we don't carrot all! We're rooting for you!"
+    end
+    
+    erb :"/cards/show"
 end
