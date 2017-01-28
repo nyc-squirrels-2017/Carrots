@@ -1,11 +1,11 @@
 get '/decks/:d_id/rounds/:round_num/cards' do
   @round = current_user.rounds.create(deck_id: params[:d_id])
-  session[:user][:card_no] = 0
+  session[:card] = 0
   redirect "/decks/#{@round.deck.id}/rounds/#{params[:round_num]}/cards/1"
 end
 
 get '/decks/:d_id/rounds/:round_num/cards/:id' do
-  session[:user][:card_no] += 1
+  session[:card] += 1
   @round = current_user.rounds[-1]
   @deck = @round.deck
   @card = @deck.cards[0]
@@ -13,7 +13,7 @@ get '/decks/:d_id/rounds/:round_num/cards/:id' do
   erb :"/cards/show"
 end
 
-post '/decks/:d_id/rounds/:round_num/cards' do
+# post '/decks/:d_id/rounds/:round_num/cards' do
   # @round = Round.where("user_id && deck_id &&")
 
 
@@ -27,4 +27,4 @@ post '/decks/:d_id/rounds/:round_num/cards' do
   #   @errors = ['Incorrect!']
   #
   # end
-end
+# end
