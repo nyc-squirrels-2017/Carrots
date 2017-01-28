@@ -7,5 +7,5 @@
 
   <p>Were carrots always orange? What country produces the most carrots? Find out the answers to these questions and much more with our fun carrot flash card deck.</p>
 
-  <a href="/decks/<%= @deck.id %>/rounds/<%= @current_user.round_count_for(@deck.id) %>/cards/1"><p class="buttons t-center">Start Round</p></a>
+  <a href="/decks/<%= @deck.id %>/rounds/<%= @current_user.round_count(@deck.id) + 1 %>/cards"><p class="buttons t-center">Start Round <%= @current_user.round_count(@deck.id) + 1 %></p></a>
 </main>

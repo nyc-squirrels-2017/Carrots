@@ -4,12 +4,13 @@
         <center>
           <span class="singer">True Or False</span>
           <h2 class="card">
-            Question <%= @card.id %> of <%= @deck.cards.size %>
+            Round <%= @current_user.round_count(@deck.id)%> <br>
+            Question <%= session[:user][:card_no] %> of <%= @deck.cards.size %>
             <br><br><br>
             <%= @card.question %></h2>
         </center>
       <form action="/users" method="post">
-        <input type="text" name="" placeholder="Your Guess:"><br><br>
+        <input type="text" name="guess[response]" placeholder="Your Guess:"><br><br>
         <input type="submit" value="Submit">
       </li>
   </ul>

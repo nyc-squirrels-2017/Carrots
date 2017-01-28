@@ -1,6 +1,8 @@
 class Card < ActiveRecord::Base
-  validates :question, :answer, presence: true
-  
   belongs_to :deck
-  has_many :guesses
+  # run destroy method on all dependent objects when the user is destroyed
+  has_many :guesses, :dependent => :destroy
+
+  validates :question, :answer, presence: true
+
 end

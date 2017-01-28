@@ -1,13 +1,13 @@
-def add_session(user_id)
-  session[:user_id] = user_id
+def add_session(user)
+  session[:user] = { user_id: user }
 end
 
 def remove_session
-  session[:user_id] = nil
+  session[:user] = nil
 end
 
 def current_user
-  @current_user ||= User.find_by_id(session[:user_id])
+  @current_user ||= User.find_by_id(session[:user][:user_id])
 end
 
 def login?
