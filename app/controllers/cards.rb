@@ -13,18 +13,23 @@ get '/decks/:d_id/rounds/:round_num/cards/:id' do
 end
 
 post '/decks/:d_id/rounds/:round_num/cards' do
-  binding.pry
-  # @round = Round.where("user_id && deck_id &&")
-  #
-  #
-  # Round.guesses.create(
-  #       response: Guess.to_bool(params[:guess]),
-  #       card_id: session[:user][:card_no]
-  #       )
-  # if
-  #
-  # else
-  #   @errors = ['Incorrect!']
-  #
-  # end
+    @round = @current_user.rounds[-1]
+    @deck = @round.deck
+    @card = Card.find_by_id(params[:guess][:card_id])
+
+    response = @card.answer == params[:guess][:response]
+    #
+    # @round.guesses.create(
+    #   response: response,
+    #   card_id: @card.id
+    # )
+
+    # if response == true
+    #  @message == correct!
+    # render the cards/show page with the message
+    # else
+    #  @message == incorrect!
+    # render the cards/show page with the message
+    # end
+
 end

@@ -5,10 +5,17 @@
     <article class="card">
       <p> <%= @card.question %></p>
     </article>
-    <form action="/users" method="post">
-      <input type="radio" name="guess[response]" value="true" checked><span>True</span><br><br>
-      <input type="radio" name="guess[response]" value="false"><span>False</span><br><br>
-      <input type="submit" value="Submit">
-    </li>
+    <% if @message %>
+      <!-- Notify if the user is correct or not -->
+      <!-- Show the correct answer  -->
+      <!-- Link to the next problem -->
+    <% else %>
+      <form action="/decks/<%= @deck.id %>/rounds/<%= @current_user.round_count(@deck.id)%>/cards" method="post">
+        <input type="hidden" name="guess[card_id]" value="<%= @deck.id %>">
+        <input type="radio" name="guess[response]" value="true" checked><span>True</span><br><br>
+        <input type="radio" name="guess[response]" value="false"><span>False</span><br><br>
+        <input type="submit" value="Submit">
+      </form>
+    <% end %>
   </div>
 </main>
