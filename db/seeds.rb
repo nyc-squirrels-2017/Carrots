@@ -31,6 +31,12 @@ card2 = Card.create!({
     :deck_id => deck1.id
     })
 
+card3 = Card.create!({
+  :question => "Mel Blanc, the voice of cartoon character Bugs Bunny, reportedly did not like carrots.",
+  :answer => "true",
+  :deck_id => deck1.id
+  })
+
 guess1 = Guess.create!({
   :response => true,
   :round_id => round1.id,
