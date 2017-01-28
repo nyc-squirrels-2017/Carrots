@@ -15,5 +15,5 @@ def login?
 end
 
 def require_login
-  redirect "/sessions/login" if current_user
+  redirect "/sessions/login" unless current_user
 end

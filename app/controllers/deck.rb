@@ -4,6 +4,7 @@ get '/decks' do
 end
 
 get '/decks/:id' do
-  @decks = Deck.find(params[:id])
+  require_login
+  @deck = Deck.find(params[:id])
   erb :'decks/show'
 end

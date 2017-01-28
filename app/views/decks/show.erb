@@ -1,5 +1,5 @@
 <main role="main">
-  <h1>Deck: Carrots</h1>
+  <h1>Deck: <%= @deck.name %></h1>
 
   <p>Does bugs bunny like carrots? If you answer yes! You are CARROTS!</p>
 
@@ -7,5 +7,5 @@
 
   <p>Were carrots always orange? What country produces the most carrots? Find out the answers to these questions and much more with our fun carrot flash card deck.</p>
 
-  <a href="/decks/<%%>/rounds/<%%>"><p class="buttons t-center">Start Round</p></a>
+  <a href="/decks/<%= @deck.id %>/rounds/<%= @current_user.round_count_for(@deck.id) %>/cards/1"><p class="buttons t-center">Start Round</p></a>
 </main>
