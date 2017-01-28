@@ -2,8 +2,8 @@
   <h1>Login for Some Carrot Goodness!</h1>
   <%= erb :"partials/_errors"%>
   <form action="/sessions" method="post">
-    <input type="text" name="user[username]" placeholder="Username"><br><br>
-    <input type="password" name="user[password]" placeholder="Password"><br><br>
+    <input type="text" name="user[username]" placeholder="Username (e.g. admin)"><br><br>
+    <input type="password" name="user[password]" placeholder="Password (e.g. carrots)"><br><br>
     <input type="submit" value="Login">
     <a href="/">Cancel</a>
   </form>
