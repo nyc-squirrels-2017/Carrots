@@ -191,3 +191,17 @@ input {
     width: 400px;
     height: 250px;
 }
+
+.t-center {
+    text-align: center
+}
+
+.buttons {
+  background: white;
+  margin-bottom: 1em;
+  border-radius: .25em;
+  width: 100%;
+  margin-top: 1em;
+  padding: 1.5em;
+  border: none;
+}
