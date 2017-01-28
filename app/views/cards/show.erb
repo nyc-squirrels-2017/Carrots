@@ -1,0 +1,27 @@
+<main role="main">
+  <div class="container flash_card">
+    <h1>Round <%= @current_user.round_count(@deck.id)%> </h1>
+    <h2>Question <%= session[:card] %> of <%= @deck.cards.size %> </h2>
+      
+    <article class="card">
+      <p> <%= @card.question %></p>
+      <% if @message %>
+      <% end %>
+    </article>
+
+    <% if @message %>
+      <div>
+        <p>The answer is: <%= @card.answer %></p>
+        <p><%= @message %></p>
+        <a href="/decks/<%= @deck.id %>/rounds/<%= @current_user.round_count(@deck.id) %>/cards/<%= session[:card] += 1 %>">Click for next card</a>
+      </div>
+    <% else %>
+      <form action="/decks/<%= @deck.id %>/rounds/<%= @current_user.round_count(@deck.id)%>/cards" method="post">
+        <input type="hidden" name="guess[card_id]" value="<%= @card.id %>">
+        <input type="radio" name="guess[response]" value="true" checked><span>True</span><br><br>
+        <input type="radio" name="guess[response]" value="false"><span>False</span><br><br>
+        <input type="submit" value="Submit">
+      </form>
+    <% end %>
+  </div>
+</main>

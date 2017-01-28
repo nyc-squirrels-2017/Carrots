@@ -1,10 +1,3 @@
-
-get '/users/:id' do
-
-   @user = User.find_by(id: params[:id])
-erb :users
-end
-
 get '/users' do
   redirect '/'
 end
@@ -12,6 +5,11 @@ end
 # signup
 get '/users/signup' do
   erb :"users/new"
+end
+
+get '/users/:id' do
+  @user = User.find_by(id: params[:id])
+  erb :users
 end
 
 post '/users' do

@@ -185,9 +185,47 @@ input {
 }
 
 .card {
+    color: black;
     border-radius: 25px;
     background: #ffca6a;
     padding: 20px;
     width: 400px;
     height: 250px;
+    margin-bottom: 30px;
+}
+
+.t-center {
+    text-align: center
+}
+
+.buttons {
+  background: white;
+  margin-bottom: 1em;
+  border-radius: .25em;
+  width: 100%;
+  margin-top: 1em;
+  padding: 1.5em;
+  border: none;
+}
+
+.flash_card {
+  background-color: white;
+  color: black;
+  border-radius: 10px;
+  text-align: center;
+}
+
+.flash_card .card p {
+  font-size: 2em;
+}
+
+.flash_card input[type=radio] {
+  float: left;
+  margin-left: 30px;
+  width: 30%;
+  /*display: inline;*/
+}
+
+.flash_card span {
+  float: left;
 }

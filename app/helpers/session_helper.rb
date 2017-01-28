@@ -1,9 +1,10 @@
-def add_session(user_id)
-  session[:user_id] = user_id
+def add_session(user)
+  session[:user_id] = user
 end
 
 def remove_session
   session[:user_id] = nil
+  session[:card] = nil
 end
 
 def current_user
@@ -15,5 +16,5 @@ def login?
 end
 
 def require_login
-  redirect "/sessions/login" if current_user
+  redirect "/sessions/login" unless current_user
 end
