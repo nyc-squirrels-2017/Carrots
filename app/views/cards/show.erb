@@ -5,7 +5,7 @@
           <span class="singer">True Or False</span>
           <h2 class="card">
             Round <%= @current_user.round_count(@deck.id)%> <br>
-            Question <%= session[:user][:card_no] %> of <%= @deck.cards.size %>
+            Question <%= session[:card] %> of <%= @deck.cards.size %>
             <br><br><br>
             <%= @card.question %></h2>
         </center>

@@ -1,14 +1,13 @@
 get '/decks/:d_id/rounds/:round_num/cards' do
   @round = current_user.rounds.create(deck_id: params[:d_id])
-  session[:card] = 0
+  session[:card] = 1
   redirect "/decks/#{@round.deck.id}/rounds/#{params[:round_num]}/cards/1"
 end
 
 get '/decks/:d_id/rounds/:round_num/cards/:id' do
-  session[:card] += 1
   @round = current_user.rounds[-1]
   @deck = @round.deck
-  @card = @deck.cards[0]
+  @card = @deck.cards[session[:card] - 1]
 
   erb :"/cards/show"
 end
