@@ -1,17 +1,14 @@
 <main role="main">
-  <ul class="entries">
-      <li class="entry">
-        <center>
-          <span class="singer">True Or False</span>
-          <h2 class="card">
-            Round <%= @current_user.round_count(@deck.id)%> <br>
-            Question <%= session[:card] %> of <%= @deck.cards.size %>
-            <br><br><br>
-            <%= @card.question %></h2>
-        </center>
-      <form action="/users" method="post">
-        <input type="text" name="guess[response]" placeholder="Your Guess:"><br><br>
-        <input type="submit" value="Submit">
-      </li>
-  </ul>
+  <div class="container flash_card">
+      <h1>Round <%= @current_user.round_count(@deck.id)%> </h1>
+      <h2>Question <%= session[:card] %> of <%= @deck.cards.size %> </h2>
+    <article class="card">
+      <p> <%= @card.question %></p>
+    </article>
+    <form action="/users" method="post">
+      <input type="radio" name="guess[response]" value="true" checked><span>True</span><br><br>
+      <input type="radio" name="guess[response]" value="false"><span>False</span><br><br>
+      <input type="submit" value="Submit">
+    </li>
+  </div>
 </main>

@@ -191,6 +191,7 @@ input {
     padding: 20px;
     width: 400px;
     height: 250px;
+    margin-bottom: 30px;
 }
 
 .t-center {
@@ -205,4 +206,26 @@ input {
   margin-top: 1em;
   padding: 1.5em;
   border: none;
+}
+
+.flash_card {
+  background-color: white;
+  color: black;
+  border-radius: 10px;
+  text-align: center;
+}
+
+.flash_card .card p {
+  font-size: 2em;
+}
+
+.flash_card input[type=radio] {
+  float: left;
+  margin-left: 30px;
+  width: 30%;
+  /*display: inline;*/
+}
+
+.flash_card span {
+  float: left;
 }
